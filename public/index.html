@@ -1,89 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>William Banquier</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	</head>
+	<body style = "padding-left: 30px; padding-right: 30px;">
+		<h3 class="center-align">Hello, I am William Banquier!</h3>
+		
+		<br>
+		<div class="divider"></div>
+		<br>
+		
+		<h5>About Me</h5>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.9.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.9.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.9.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.9.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.9.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.9.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.9.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.9.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.9.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.9.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+		
+		
+		<p>In my free time, I code in <b>Python 3</b> (in the repo '<a href="https://github.com/William-Banquier/WilliamBanquierPersonal" target="_blank">WilliamBanquierPersonal</a>' I have many magnificent <b>Machine Learning</b> projects where I use <b>Massive Data Sets</b> - in the <a href="https://github.com/William-Banquier/WilliamBanquierPersonal/tree/master/Random%20Machine%20Learning/KickStarterData" target="_blank">Kickstarter Machine Learning Code Project</a> (this is a .ibnpy) there are <b>378,662</b> rows in the dataset! (There are actually two .csv files inside the project folder, but since I only use one file, I am only counting the one file that I use)), I also like to do <b>LeetCode Coding Problems</b>. Don't worry, I also know and have multiple years of experience in <b>C#</b> (mostly on <b>Game Development</b>), <b>HTML</b>, <b>JavaScript</b>, <b>CSS</b>, and also minor experience in <b>SQL</b>!</p>
+		
+		<p>I also have a <a href="https://github.com/William-Banquier" target="_blank">GitHub</a> account — please look around! </p>
+		
+		<p>Aside from coding, I have a love for <b>Robotics</b> (I have been part of the robotics club at my school for the past 4 years), <b>Taekwondo</b> (I am a second dan blackbelt), playing my <b>French Horn</b> (I have been playing my french horn for a bit over 5 years), and <b>Hiking</b> (I love taking a break and going on a long walk)!</p>
+		
+		<p><b>Please</b> contact me at "<a href="mailto:William.Banquier@gmail.com" target="new">William.Banquier@gmail.com</a>"!</p>
+		
+		<br>
+		<div class="divider"></div>
+		<br>
+		
+		<h5><b>Newest Commit To My <a href="https://github.com/William-Banquier/WilliamBanquierPersonal" target="_blank">Personal Github Repo</a></b></h5>
+		
+		<p id = "push_information_placeholder">Loading Newest Git Commit from the repo WilliamBanquierPersonal……</p>
+	
+		<script>
+			
+			//Get newest push from master in GitHub @William-Banquier/WilliamBanquierPersonal
+			
+			/*
+			Code works by:
+				1) Using the fetch command to get a JSON file with the required information using the GitHub API, we call our JSON variable "formatedResponce".
+				
+				2) To get our message variable (the one storing the commit), we can go to the child of our "formatedResponce" called commit, then go to the child of that, called commit… then we can get the value of "message" to find our commit message!
+				
+				3) For step three, we can follow the same method as we did in the second step to find the author's value. The only difference is instead of going to the "message" value we go to the sibling "author" value then we go to its child called name to get the name of our author.
+				
+				4) To get the date value, we start by following the steps of step 3, but instead of getting the name value, find the sibling (to the author value) date value.
+				
+				5) The date value is in the incorrect format—it is in 'ISO 8601', whereas we need it in 'RFC 2822'. Thankfully all that we need to do is turn our date variable (which is currently a string) into a JavaScript Date variable. Changing the type will automatically convert the date!
+				
+				6) Now, we can combine all these values into a nice string to output!
+				
+			~~
+			I am not very good at writing up what my code does—I am practicing. Please email me at William.Banquier@gmail.com if you have any suggestions, or maybe you noticed a horrible spelling error!
+			*/
+			
+			var message = "";
+			var author = "";
+			var date = null;
+			
+			fetch('https://api.github.com/repos/William-Banquier/WilliamBanquierPersonal/branches/master')
+				.then(response => response.json())
+				.then(formatedResponse =>  {
+					message = (formatedResponse.commit.commit.message)
+					console.log(message)
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+					author = (formatedResponse.commit.commit.author.name)
+					console.log(author)
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+					date = (formatedResponse.commit.commit.author.date)
+					console.log(date)
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+					//Convert date from 'ISO 8601' to 'RFC 2822' Date
+					date = new Date (date)
+					console.log(date)
+
+					information = "<b>"+author+"</b> pushed new code/information to 'WilliamBanquierPersonal' on <b>"+date+'</b> with the commit message: "<b>'+message+'</b>"'
+
+					console.log(author,"pushed new code/information to 'WilliamBanquierPersonal' on",date,'with the commit message: "'+message+'"')
+
+					document.getElementById("push_information_placeholder").innerHTML = information
+					console.log("COMPLETED")
+			});
+			
+		</script>
+	</body>
 </html>

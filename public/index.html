@@ -23,19 +23,23 @@
 		
 		<p>Aside from coding, I have a love for <b>Robotics</b> (I have been part of the robotics club at my school for the past 4 years), <b>Taekwondo</b> (I am a second dan blackbelt), playing my <b>French Horn</b> (I have been playing my french horn for a bit over 5 years), and <b>Hiking</b> (I love taking a break and going on a long walk)!</p>
 		
+		<p>In more recent times I have been building some very complex robots and I am happy to show a website which showcases the builds nicely, check it out: <a href="https://sites.google.com/view/will-xan-projects/home" target="_blank">My Builds Website</a></p>
+
 		<p><b>Please</b> contact me at "<a href="mailto:William.Banquier@gmail.com" target="new">William.Banquier@gmail.com</a>"!</p>
 		
+
+
 		<br>
 		<div class="divider"></div>
 		<br>
 		
-		<h5><b>Newest Commit To My <a href="https://github.com/William-Banquier/WilliamBanquierPersonal" target="_blank">Personal Github Repo</a></b></h5>
+		<h5><b>Newest Commit To My <a href="https://github.com/William-Banquier/WilliamBanquier.com" target="_blank">This Website</a></b> (it's Open Source)</h5>
 		
-		<p id = "push_information_placeholder">Loading Newest Git Commit from the repo WilliamBanquierPersonal……</p>
+		<p id = "push_information_placeholder">Loading Newest Git Commit from the repo WilliamBanquier.com</p>
 	
 		<script>
 			
-			//Get newest push from master in GitHub @William-Banquier/WilliamBanquierPersonal
+			//Get newest push from master in GitHub @William-Banquier/WilliamBanquier.com
 			
 			/*
 			Code works by:
@@ -52,14 +56,15 @@
 				6) Now, we can combine all these values into a nice string to output!
 				
 			~~
-			I am not very good at writing up what my code does—I am practicing. Please email me at William.Banquier@gmail.com if you have any suggestions, or maybe you noticed a horrible spelling error!
+			Please email me at William.Banquier@gmail.com if you have any questions!
+
 			*/
 			
 			var message = "";
 			var author = "";
 			var date = null;
 			
-			fetch('https://api.github.com/repos/William-Banquier/WilliamBanquierPersonal/branches/master')
+			fetch('https://api.github.com/repos/William-Banquier/WilliamBanquier.com/branches/master')
 				.then(response => response.json())
 				.then(formatedResponse =>  {
 					message = (formatedResponse.commit.commit.message)
@@ -75,9 +80,9 @@
 					date = new Date (date)
 					console.log(date)
 
-					information = "<b>"+author+"</b> pushed new code/information to 'WilliamBanquierPersonal' on <b>"+date+'</b> with the commit message: "<b>'+message+'</b>"'
+					information = "<b>"+author+"</b> pushed new code/information to 'WilliamBanquier.com' on <b>"+date+'</b> with the commit message: "<b>'+message+'</b>"'
 
-					console.log(author,"pushed new code/information to 'WilliamBanquierPersonal' on",date,'with the commit message: "'+message+'"')
+					console.log(author,"pushed new code/information to 'WilliamBanquier.com' on",date,'with the commit message: "'+message+'"')
 
 					document.getElementById("push_information_placeholder").innerHTML = information
 					console.log("COMPLETED")

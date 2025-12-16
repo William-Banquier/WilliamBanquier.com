@@ -24,19 +24,11 @@
 
         <header>
             <div class="links">
-                
-                <a href="mailto:william.banquier@gmail.com">
-                    <div class="link-content">Email</div>
+                {% for link in links %}
+                <a href="{{link.link}}">
+                    <div class="link-content">{{link.title}}</div>
                 </a>
-                
-                <a href="https://github.com/william-banquier">
-                    <div class="link-content">Github</div>
-                </a>
-                
-                <a href="/?????">
-                    <div class="link-content">Resume</div>
-                </a>
-                
+                {% endfor %}
             </div>
         </header>
 
@@ -53,34 +45,34 @@
         <hr class="divider">
 
         <div class="project-grid">
-            
-            <a href="https://github.com/William-Banquier/WilliamBanquier.com" class="card">
-                <div class="card-img" style="background-image: url('');"></div>
+            {% for project in featured %}
+            <a href="{{ project.link }}" class="card">
+                <div class="card-img" style="background-image: url('{{ project.image }}');"></div>
                 <div class="card-content">
-                    <span class="card-title">WilliamBanquier.com</span>
-                    <span class="card-desc">Personal Website. Uses Custom Static Compilation Layer</span>
+                    <span class="card-title">{{ project.title }}</span>
+                    <span class="card-desc">{{ project.blurb }}</span>
                 </div>
             </a>
-            
+            {% endfor %}
         </div>
 
         <div class="list-section">
             <h3>Other Projects</h3>
             <ul class="simple-list">
-                
+                {% for project in others %}
                 <li>
-                    <a href="">Old Website</a>
-                    <span style="color:#888; font-size: 0.9em;"> // 2018-01-01</span>
-                    <p> My old HTML site. </p>
+                    <a href="{{ project.link }}">{{ project.title }}</a>
+                    <span style="color:#888; font-size: 0.9em;"> // {{ project.date }}</span>
+                    <p> {{project.blurb}} </p>
                 </li>
-                
+                {% endfor %}
             </ul>
         </div>
 
         <div class = "personal">
             <h3>Personal Summary</h3>
 
-            <p class = "personal-summary">William Banquier is .....</p>
+            <p class = "personal-summary">{{ personal_summary }}</p>
 
         </div>
 

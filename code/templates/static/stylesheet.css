@@ -1,0 +1,113 @@
+:root {
+    --bg-color: #fff9e0;
+    --primary-color: #f8bb08;
+    --secondary-color: #b6cfa0;
+    --accent-color: #8cbe7f;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --text-color: #251d01;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background: var(--bg-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* wanted to seperate link section and the title section  */
+header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.header_ele {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.intro-blurb {
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 20px;
+}
+
+hr.divider {
+    border: 0;
+    border-top: 4px dotted var(--accent-color); 
+    margin: 40px 0;
+}
+
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    background: var(--accent-color);
+    text-decoration: none; 
+    color: inherit;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-img {
+    height: 140px;
+    background-color: var(--secondary-color); 
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    .bottom-columns {
+        grid-template-columns: 1fr;
+    }
+}

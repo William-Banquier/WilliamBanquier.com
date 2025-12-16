@@ -1,0 +1,17 @@
+[
+  {
+    "id": "current_website",
+    "title": "WilliamBanquier.com",
+    "blurb": "Personal Website. Uses Custom Static Compilation Layer",
+    "link": "https://github.com/William-Banquier/WilliamBanquier.com",
+    "featured": true,
+    "date": "2025-12-16" 
+  },
+  {
+    "id": "website-v1",
+    "title": "Old Website",
+    "blurb": "My old HTML site.",
+    "featured": false,
+    "date": "2018-01-01"
+  }
+]

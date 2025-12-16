@@ -1,0 +1,20 @@
+[
+  {
+    "id": "email",
+    "title": "Email",
+    "link": "mailto:william.banquier@gmail.com",
+    "show": true
+  },
+  {
+    "id": "github",
+    "title": "Github",
+    "link": "https://github.com/william-banquier",
+    "show": true
+  },
+  {
+    "id": "resume",
+    "title": "Resume",
+    "link": "/?????",
+    "show": true
+  }
+]

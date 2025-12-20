@@ -1,17 +1,36 @@
 [
   {
     "id": "current_website",
-    "title": "WilliamBanquier.com",
-    "blurb": "Personal Website. Uses Custom Static Compilation Layer",
-    "link": "https://github.com/William-Banquier/WilliamBanquier.com",
+    "title": "williambanquier.com",
+    "blurb": "Personal website. Uses custom static compilation layer",
+    "link": "https://github.com/william-banquier/williambanquier.com",
     "featured": true,
     "date": "2025-12-16" 
   },
   {
-    "id": "website-v1",
-    "title": "Old Website",
-    "blurb": "My old HTML site.",
+    "id": "ubcrover",
+    "title": "UBC Rover - Arm & End Effector Team",
+    "blurb": "Working designing tool changing end effector for UBC Rover; competing in URC and CIRC.",
+    "link": "https://github.com/UBC-Snowbots/Arm",
+    "image" : "./static/images/projects/rover_black.png",
+    "featured": true,
+    "date": "2025-12-16" 
+  },
+  {
+    "id": "ubcgradmap",
+    "title": "UBC Gradmap",
+    "blurb": "Web application to help UBC students plan their courses and visualize their degree progress.",
+    "link": "https://ubcgradmap.com/",
+    "image" : "./static/images/projects/gradmap.svg",
+    "featured": true,
+    "date": "2024-09-01" 
+  },
+  {
+    "id": "wjb_personal",
+    "title": "Archived Personal Projects Repository",
+    "blurb": "A collection of my personal projects, from pre 2020",
+    "link": "https://github.com/William-Banquier/WilliamBanquierPersonal",
     "featured": false,
-    "date": "2018-01-01"
+    "date": "2020-01-01"
   }
 ]

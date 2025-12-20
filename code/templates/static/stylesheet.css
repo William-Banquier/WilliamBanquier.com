@@ -87,8 +87,15 @@ hr.divider {
 .card-img {
     height: 140px;
     background-color: var(--secondary-color); 
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    width: 100%;
+    background-repeat: no-repeat;
+
+    background-origin: content-box;  
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box; 
 }
 
 .card-content {

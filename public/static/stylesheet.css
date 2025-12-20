@@ -74,7 +74,7 @@ hr.divider {
     overflow: hidden;
     transition: transform 0.2s;
     background: var(--accent-color);
-    text-decoration: none; /* If the whole card is a link */
+    text-decoration: none; 
     color: inherit;
     display: block;
 }
@@ -86,7 +86,7 @@ hr.divider {
 
 .card-img {
     height: 140px;
-    background-color: var(--secondary-color); /* Placeholder color */
+    background-color: var(--secondary-color); 
     background-size: cover;
     background-position: center;
 }

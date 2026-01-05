@@ -8,6 +8,14 @@
     "date": "2025-12-16" 
   },
   {
+    "id": "codeforces/2177",
+    "title": "Huawei ICPC 2025 Winter Challenge",
+    "blurb": "My solution and repo to the Huawei ICPC Winter Challenge - The goal was to optimize optical switch connections (OXC connections) for NPU (neural-processing unit) queries, I created an end-to-end solution to test and develop my solution, using both c++ and python",
+    "link": "https://github.com/William-Banquier/codeforces-2177-oxc_contest",
+    "featured": true,
+    "date": "2026-01-04" 
+  },
+  {
     "id": "ubcrover",
     "title": "UBC Rover - Arm & End Effector Team",
     "blurb": "Working designing tool changing end effector for UBC Rover; competing in URC and CIRC.",

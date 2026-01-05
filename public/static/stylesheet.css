@@ -7,6 +7,10 @@
     --text-color: #251d01;
 }
 
+a {
+    color: var(--accent-color);
+}
+
 body {
     font-family: var(--font-main);
     color: var(--text-color);

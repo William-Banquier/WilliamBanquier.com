@@ -19,6 +19,8 @@ SUMMARY_FILE = 'code/content/main_page/personal-summary.txt'
 
 INDEX_FILE = f"{OUTPUT_DIR}/index.html"
 
+RESUME_DIR = "dnu-resume/resume.pdf"
+
 """
 gets the most recent date for a given file using git log
 """
@@ -38,6 +40,8 @@ def build():
         last_updated_date = get_last_updated_date(INDEX_FILE)
         shutil.rmtree(OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR)
+
+    os.system(f"cp {RESUME_DIR} code/templates/static/william-banquier-resume.pdf")
 
 
     # copy static items 

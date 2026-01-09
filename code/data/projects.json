@@ -2,9 +2,9 @@
   {
     "id": "current_website",
     "title": "williambanquier.com",
-    "blurb": "Personal website. Uses custom static compilation layer",
+    "blurb": "Personal website (this page). Uses custom static compilation layer",
     "link": "https://github.com/william-banquier/williambanquier.com",
-    "featured": true,
+    "featured": false,
     "date": "2025-12-16" 
   },
   {

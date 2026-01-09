@@ -41,7 +41,10 @@ def build():
         shutil.rmtree(OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR)
 
-    os.system(f"cp {RESUME_DIR} code/templates/static/william-banquier-resume.pdf")
+    ret = os.system(f"cp {RESUME_DIR} code/templates/static/william-banquier-resume.pdf")
+    if (ret):
+        print("Error copying the file - this should be run on a linux system with cp command available")
+        exit(1)
 
 
     # copy static items 

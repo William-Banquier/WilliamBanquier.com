@@ -2,9 +2,18 @@
   {
     "id": "current_website",
     "title": "williambanquier.com",
-    "blurb": "Personal website (this page). Uses custom static compilation layer",
+    "blurb": "Personal website (this page). Built with a custom static site generator in Python.",
     "link": "https://github.com/william-banquier/williambanquier.com",
     "featured": false,
+    "date": "2025-12-16" 
+  },
+  {
+    "id": "ubcrover",
+    "title": "UBC Rover - Arm & End Effector Team",
+    "blurb": "Working designing tool changing end effector for UBC Rover; competing in URC and CIRC. Responsible for CAD design, testing and manufacturing of the end effector system.",
+    "link": "https://github.com/UBC-Snowbots/Arm",
+    "image" : "./static/images/projects/rover_black.png",
+    "featured": true,
     "date": "2025-12-16" 
   },
   {
@@ -16,18 +25,9 @@
     "date": "2026-01-04" 
   },
   {
-    "id": "ubcrover",
-    "title": "UBC Rover - Arm & End Effector Team",
-    "blurb": "Working designing tool changing end effector for UBC Rover; competing in URC and CIRC.",
-    "link": "https://github.com/UBC-Snowbots/Arm",
-    "image" : "./static/images/projects/rover_black.png",
-    "featured": true,
-    "date": "2025-12-16" 
-  },
-  {
     "id": "ubcgradmap",
     "title": "UBC Gradmap",
-    "blurb": "Web application to help UBC students plan their courses and visualize their degree progress.",
+    "blurb": "Web application to help UBC students plan their courses and visualize their degree progress. Built with as a part of UBC's <i>CPEN 221 - Software Construction I</i> Course",
     "link": "https://ubcgradmap.com/",
     "image" : "./static/images/projects/gradmap.svg",
     "featured": true,

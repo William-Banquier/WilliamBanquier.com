@@ -26,6 +26,7 @@ gets the most recent date for a given file using git log
 """
 def get_last_updated_date(FILE):
     ret = os.system(f"git log --date=short {FILE} > .workbin/tmp")
+    assert(ret == 0)
     loc = []
 
     with open(".workbin/tmp", "r") as tmp:

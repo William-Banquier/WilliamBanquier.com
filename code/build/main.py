@@ -25,6 +25,11 @@ RESUME_DIR = "dnu-resume/resume.pdf"
 gets the most recent date for a given file using git log
 """
 def get_last_updated_date(FILE):
+
+    """ if the file exists then get the last updated date from git log """
+    if not os.path.exists(FILE):
+        return "N/A"
+    
     ret = os.system(f"git log --date=short {FILE} > .workbin/tmp")
     assert(ret == 0)
     loc = []

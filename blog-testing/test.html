@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidenotes</title>
+    <link rel="stylesheet" href="test-stylesheet.css">
+
+</head>
+
+<body>
+
+    <article>
+        <div class="main-text">
+            <h1>Side-note Test</h1>
+            <p>
+                This is text before a sidenote
+
+                <span class="sn-wrapper" data-title="footnote tooltip">
+                    <span class="sn-trigger">highlighted_text<sup class="sn-number">1</sup></span>
+                    <a class="sn-content" href="https://google.com">
+                        <strong>1. Sidenote_title</strong><br>
+                        Side note description
+                    </a>
+                </span>
+
+                further text after the sidenote.
+            </p>
+        </div>
+    </article>
+
+</body>
+
+</html>

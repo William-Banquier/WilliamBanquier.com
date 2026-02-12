@@ -24,14 +24,7 @@
     "featured": true,
     "date": "2026-01-04" 
   },
-  {
-    "id" : "mei-fuzz",
-    "title": "MEI-Fuzz: A Coverage-Guided Fuzzer for Intel's Management Engine's Driver on the Linux Kernel",
-    "blurb" : "I append AFL++ to fuzz the MEI Driver middleware in the Linux Kernel. I wrote a custom virtual pci device in QEMU to emulate the MEI device and allow AFL++ to fuzz the driver. Project was inspired by my coursework in CPSC 539L - Topics in Programming Languages: Automated Testing, Bug Detection, and Program Analysis",
-    "link" : "<TODO: add link>", 
-    "featured": true,
-    "date": "2026-1-18"
-  },
+
   {
     "id": "ubcgradmap",
     "title": "UBC Gradmap",
@@ -40,6 +33,14 @@
     "image" : "./static/images/projects/gradmap.svg",
     "featured": true,
     "date": "2024-09-01" 
+  },
+  {
+    "id" : "risc_v-cpu",
+    "title": "RISC-V CPU in SystemVerilog",
+    "blurb": "For the course CPEN 211 at the University of British Columbia, I designed and implemented a simple RISC-V CPU in SystemVerilog. Using the CPU competed in a in-class competition where I reduced clock cycles and sped up the CPU. Note: As this was a course project, the code is not publicly available.",
+    "link": "https://ece.ubc.ca/courses/cpen-211/",
+    "featured": false,
+    "date": "2024-09-01"
   },
   {
     "id": "wjb_personal",

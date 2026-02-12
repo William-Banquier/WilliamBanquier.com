@@ -71,3 +71,5 @@ node_modules/
 
 .workbin
 dnu-resume
+# just a file to store copy-pasted items between commits locally 
+.copylog

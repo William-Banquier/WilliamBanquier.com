@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Invisible container that matches the un-warped image size */
+        .callout-bounding-box {
+            position: relative;
+            /* Width and height are set dynamically by JavaScript */
+        }
+
+        /* This is the magic wrapper for CSS snapping */
+        .snap-scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            /* Forces scrollbar to snap to sections */
+            position: relative;
+        }
+
+        /* Keeps the canvas locked in the background */
+        .canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-color: #000;
+            background-image: url("noise.png");
+            background-repeat: repeat;
+            background-size: 128px 128px;
+            /* MOVED BACKGROUND HERE */
+        }
+
+        #sequence-canvas {
+            width: 100%;
+            height: 100%;
+            /* Removed object-fit completely */
+        }
+
+        /* Defines the size of each "slide" */
+        .snap-section {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            /* Each section is one full screen */
+            scroll-snap-align: center;
+            /* Snaps exactly to the center of the screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        /* Callout Wrapper */
+        .callout {
+            position: absolute;
+            /* By default, keep it invisible */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* The Dot */
+        .callout-dot {
+            position: absolute;
+            top: -4px;
+            /* Center the dot exactly on the coordinates */
+            left: -4px;
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            /* Slight glow */
+        }
+
+        /* The Line */
+        .callout-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: visible;
+            /* CRITICAL: Allows drawing outside the 0x0 SVG bounds */
+        }
+
+        .callout-line line {
+            /* This creates the "drawing" effect */
+            stroke-dasharray: 200;
+            /* Set to the approx length of your line */
+            stroke-dashoffset: 200;
+            /* Hide the line initially */
+            transition: stroke-dashoffset 0.6s ease-out 0.2s;
+            /* Animate after 0.2s delay */
+        }
+
+        /* The Text */
+        .callout-text {
+            position: absolute;
+            width: 250px;
+            color: white;
+            font-family: sans-serif;
+            opacity: 0;
+            transform: translateX(-10px);
+            /* Start slightly to the left */
+            transition: opacity 0.4s ease-out 0.8s, transform 0.4s ease-out 0.8s;
+            /* Fade in AFTER line draws */
+        }
+
+        .callout-text h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .callout-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* =========================================
+   ACTIVE STATE (When slide snaps into view)
+   ========================================= */
+        .callout.is-active {
+            opacity: 1;
+        }
+
+        .callout.is-active .callout-line line {
+            stroke-dashoffset: 0;
+            /* Draw the line */
+        }
+
+        .callout.is-active .callout-text {
+            opacity: 1;
+            /* Fade in text */
+            transform: translateX(0);
+            /* Slide text into resting position */
+        }
+
+        /* Mobile overrides */
+        @media (max-width: 768px) {
+            .callout-line {
+                display: none;
+                /* Hide lines on small screens */
+            }
+
+            .callout-text {
+                /* Override inline hardcoded offsets so text sits right below the dot */
+                top: 20px !important;
+                left: -125px !important;
+                /* Centers the 250px box horizontally over the dot */
+                background: rgba(0, 0, 0, 0.7);
+                /* Adds contrast for readability */
+                padding: 10px;
+                border-radius: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- The container that handles the snapping -->
+    <div class="snap-scroll-container">
+
+        <!-- Fixed Background Canvas -->
+        <div class="canvas-container">
+            <canvas id="sequence-canvas"></canvas>
+        </div>
+
+        <!-- --- REPLACE YOUR TWO SECTIONS --- -->
+
+        <section class="snap-section">
+            <!-- 1. OPEN ONLY ONE BOUNDING BOX HERE -->
+            <div class="callout-bounding-box">
+
+                <!-- Callout 1 -->
+                <div class="callout" style="top: 68%; left: 73%;">
+                    <div class="callout-dot"></div>
+                    <svg class="callout-line">
+                        <line x1="0" y1="0" x2="-150" y2="-130" stroke="white" stroke-width="1.5" />
+                    </svg>
+                    <div class="callout-text" style="top: -150px; left: -365px;">
+                        <h3>Modular End Effector System</h3>
+                        <p>Attached to our differential system is as fully modular end effector system. Currently
+                            attached is our largest gripper, which operates off of a rack and pinion system.</p>
+                    </div>
+                </div>
+
+                <!-- Callout 2 -->
+                <div class="callout" style="top: 27%; left: 55%;">
+                    <div class="callout-dot"></div>
+                    <svg class="callout-line">
+                        <line x1="0" y1="0" x2="150" y2="-100" stroke="white" stroke-width="1.5" />
+                    </svg>
+                    <div class="callout-text" style="top: -160px; left: 165px;">
+                        <h3>Belt Driven Differential</h3>
+                        <p>We designed a belt driven differential system to reduce the moment at the end of the arm;
+                            thus letting us maximize the possible payload of the arm.</p>
+                    </div>
+                </div>
+
+                <!-- Callout 3 -->
+                <div class="callout" style="top: 50%; left: 35%;">
+                    <div class="callout-dot"></div>
+                    <svg class="callout-line">
+                        <line x1="0" y1="0" x2="-150" y2="180" stroke="white" stroke-width="1.5" />
+                    </svg>
+                    <div class="callout-text" style="top: 100px; left: -365px;">
+                        <h3>UBC Rover's 6 DOF Robotic Arm</h3>
+                        <p>Participating in URC & CIRC, the Top Rover Competitions, this is UBC's Premier Robotics
+                            Design Team's Robotic Arm.</p>
+                    </div>
+                </div>
+
+                <!-- 2. CLOSE THAT SINGLE BOUNDING BOX HERE -->
+            </div>
+        </section>
+
+        <section class="snap-section">
+            <!-- 1. OPEN ONLY ONE BOUNDING BOX HERE -->
+            <div class="callout-bounding-box">
+
+                <!-- Callout 1 -->
+                <div class="callout" style="top: 5%; left: 45%;">
+                    <div class="callout-dot" style="top: 196px "></div>
+                    <svg class="callout-line">
+                        <line x1="0" y1="200" x2="300" y2="-50" stroke="white" stroke-width="1.5" />
+                    </svg>
+                    <div class="callout-text" style="top: 20px; left: 175px;">
+                        <h3>Full Extension</h3>
+                        <p>At full extension our arm is able to carry 5kg, while mounted on our rover.</p>
+                    </div>
+                </div>
+
+                <!-- Callout 2 -->
+                <div class="callout" style="top: 35px; left: 35px;">
+                    <div class="callout-text" style="top: 0px; left: 0px;">
+                        <h3>Come Join Us!</h3>
+                        <p>If this is cool to you, please come <a href="https://www.ubcrover.com/" target="_blank">join
+                                our team</a>.</p>
+                    </div>
+                </div>
+
+                <!-- Callout 3 -->
+                <div class="callout" style="top: 65%; left: 65%;">
+                    <div class="callout-text" style="top: 200px; left: 200px;">
+                        <p>ARM Designed and Built by the UBC Rover Arm Team.<br>Site by William Banquier.</p>
+                    </div>
+                </div>
+
+                <!-- 2. CLOSE THAT SINGLE BOUNDING BOX HERE -->
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const canvas = document.getElementById("sequence-canvas");
+        const context = canvas.getContext("2d");
+        const scrollContainer = document.querySelector(".snap-scroll-container");
+
+        // Configuration
+        const frameCount = 7; // Total number of images in your sequence
+        const images = [];
+        let loadedImages = 0;
+
+        // 1. Function to generate the image paths (e.g., frame_001.jpg, frame_002.jpg)
+        const currentFrame = index => (
+            `frames/${index.toString().padStart(4, '0')}.webp`
+        );
+
+        // 2. Preload all images (Crucial step! Otherwise animation will stutter)
+        for (let i = 1; i <= frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            images.push(img);
+
+            img.onload = () => {
+                loadedImages++;
+                // Draw the very first frame once it loads
+                if (i === 1) {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    drawImage(images[0]);
+                }
+            };
+        }
+
+        function drawImage(img) {
+            if (!img) { console.log("NO IMAGE"); return; }
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 1. Calculate scale factor to fit image inside canvas
+            const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
+
+            // 2. Calculate new un-warped dimensions
+            const newWidth = img.width * scale;
+            const newHeight = img.height * scale;
+
+            // 3. Calculate offsets to center the image on the canvas
+            const offsetX = (canvas.width - newWidth) / 2;
+            const offsetY = (canvas.height - newHeight) / 2;
+
+            // 4. Draw the image with new coordinates
+            context.drawImage(img, offsetX, offsetY, newWidth, newHeight);
+
+            // 5. Force the callout wrapper to perfectly match the image dimensions
+            syncCalloutBoxes(newWidth, newHeight);
+        }
+
+        // Syncs the HTML bounding boxes to the Canvas Image
+        function syncCalloutBoxes(width, height) {
+            const boxes = document.querySelectorAll('.callout-bounding-box');
+            boxes.forEach(box => {
+                box.style.width = `${width}px`;
+                box.style.height = `${height}px`;
+            });
+        }
+
+        // Keep canvas and callouts synced when user resizes the window
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            // Figure out which frame we are currently on to redraw it
+            const scrollTop = scrollContainer.scrollTop;
+            const maxScrollTop = scrollContainer.scrollHeight - window.innerHeight;
+            // Prevent division by zero if scrolling isn't possible
+            const scrollFraction = maxScrollTop > 0 ? scrollTop / maxScrollTop : 0;
+
+            const frameIndex = Math.min(
+                frameCount - 1,
+                Math.floor(scrollFraction * frameCount)
+            );
+
+            if (images[frameIndex]) {
+                drawImage(images[frameIndex]);
+            }
+        });
+
+        // 3. Listen to the scroll event inside the snapping container
+        scrollContainer.addEventListener("scroll", () => {
+            if (loadedImages !== frameCount) return; // wait until all images are loaded
+
+            // Calculate scroll percentage (0 to 1)
+            const scrollTop = scrollContainer.scrollTop;
+            const maxScrollTop = scrollContainer.scrollHeight - window.innerHeight;
+            const scrollFraction = scrollTop / maxScrollTop;
+
+            // Map the scroll fraction to the image array index
+            const frameIndex = Math.min(
+                frameCount - 1,
+                Math.floor(scrollFraction * frameCount)
+            );
+
+            // Request Animation Frame ensures the canvas updates smoothly on the next screen repaint
+            requestAnimationFrame(() => {
+                drawImage(images[frameIndex]);
+            });
+        });
+        // Select all callouts on the page
+        const callouts = document.querySelectorAll('.callout');
+
+        // Set up the observer
+        const observerOptions = {
+            root: null, // use the viewport
+            threshold: 0.6 // Trigger when 60% of the section is visible
+        };
+
+        const calloutObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // User has snapped to this slide! Trigger the animation.
+                    entry.target.classList.add('is-active');
+                } else {
+                    // User scrolled away. Remove class so it animates again next time.
+                    entry.target.classList.remove('is-active');
+                }
+            });
+        }, observerOptions);
+
+        // Attach the observer to each callout
+        callouts.forEach(callout => {
+            calloutObserver.observe(callout);
+        });
+    </script>
+</body>
+
+</html>

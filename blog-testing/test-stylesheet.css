@@ -1,301 +1,295 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
 
-        @charset "UTF-8";
-        @import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
-
-        /* Import ET Book styles
+/* Import ET Book styles
    adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
 
-        @font-face {
-            font-family: "et-book";
-            src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
-            src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf") format("svg");
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
+    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
-        @font-face {
-            font-family: "et-book";
-            src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
-            src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf") format("svg");
-            font-weight: normal;
-            font-style: italic;
-            font-display: swap;
-        }
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
+    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
 
-        @font-face {
-            font-family: "et-book";
-            src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
-            src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf") format("svg");
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-        }
-
-
-        /* --- PAGE LAYOUT (Tufte Style) --- */
-        body {
-            display: flex;
-            justify-content: center;
-            font-family: et-book, 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fffff8;
-            /* Tufte off-white  */
-            margin: 0;
-            padding: 2rem;
-            width: 87.5%;
-            padding-left: 12.5%;
-        }
-
-        article {
-            max-width: 1200px;
-            width: 100%;
-            position: relative;
-        }
-
-        /* Main text column size */
-        .main-text {
-            width: 60%;
-            font-size: 1.1rem;
-        }
-
-        h1 {
-            font-weight: 400;
-            margin-top: 4rem;
-            margin-bottom: 1.5rem;
-            font-size: 3.2rem;
-            line-height: 1;
-        }
-
-        h2 {
-            font-style: italic;
-            font-weight: 400;
-            margin-top: 2.1rem;
-            margin-bottom: 1.4rem;
-            font-size: 2.2rem;
-            line-height: 1;
-        }
-
-        h3 {
-            font-style: italic;
-            font-weight: 400;
-            font-size: 1.7rem;
-            margin-top: 2rem;
-            margin-bottom: 1.4rem;
-            line-height: 1;
-        }
-
-        hr {
-            display: block;
-            height: 1px;
-            width: 55%;
-            border: 0;
-            border-top: 1px solid #ccc;
-            margin: 1em 0;
-            padding: 0;
-        }
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
+    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
 
 
-        /* --- THE SIDENOTE SYSTEM --- */
+/* --- PAGE LAYOUT (Tufte Style) --- */
+body {
+    display: flex;
+    justify-content: center;
+    font-family: et-book, 'Georgia', serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fffff8;
+    /* Tufte off-white  */
+    margin: 0;
+    padding: 2rem;
+    width: 87.5%;
+    padding-left: 12.5%;
+}
 
-        /* 1. THE WRAPPER 
+article {
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
+}
+
+/* Main text column size */
+.main-text {
+    width: 60%;
+    font-size: 1.1rem;
+}
+
+h1 {
+    font-weight: 400;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    font-size: 3.2rem;
+    line-height: 1;
+}
+
+h2 {
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 2.1rem;
+    margin-bottom: 1.4rem;
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+h3 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.7rem;
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    line-height: 1;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    width: 55%;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+/* --- THE SIDENOTE SYSTEM --- */
+
+/* 1. THE WRAPPER 
        Wraps the word, the number, and the note content. 
        Keeps them connected for hover events.
     */
-        .sn-wrapper {
-            position: relative;
-            display: inline;
-            cursor: pointer;
-        }
+.sn-wrapper {
+    position: relative;
+    display: inline;
+    cursor: pointer;
+}
 
-        /* 2. THE TRIGGER TEXT ("teach") 
+/* 2. THE TRIGGER TEXT ("teach") 
        This is the word inside the text flow.
     */
-        .sn-trigger {
-            border-bottom: 1px dotted #888;
-            /* Subtle underline by default */
-            transition: background-color 0.2s;
-            border-radius: 3px;
-            padding: 0 2px;
-        }
+.sn-trigger {
+    border-bottom: 1px dotted #888;
+    /* Subtle underline by default */
+    transition: background-color 0.2s;
+    border-radius: 3px;
+    padding: 0 2px;
+}
 
-        /* 3. THE NUMBER (Superscript 3) */
-        .sn-number {
-            font-size: 0.75rem;
-            vertical-align: super;
-            color: #999;
-            /* grey number color */
-            /* margin-left: 1px; */
-            font-weight: bold;
-        }
+/* 3. THE NUMBER (Superscript 3) */
+.sn-number {
+    font-size: 0.75rem;
+    vertical-align: super;
+    color: #999;
+    /* grey number color */
+    /* margin-left: 1px; */
+    font-weight: bold;
+}
 
-        /* 4. THE SIDENOTE CARD (Hidden/Dimmed state) */
-        .sn-content {
-            float: right;
-            clear: right;
-            width: 30%;
-            margin-right: -55%;
-            /* Push to margin */
-            margin-top: 0;
-            /* Align with the line of text */
+/* 4. THE SIDENOTE CARD (Hidden/Dimmed state) */
+.sn-content {
+    float: right;
+    clear: right;
+    width: 30%;
+    margin-right: -55%;
+    /* Push to margin */
+    margin-top: 0;
+    /* Align with the line of text */
 
-            /* Default Look (Inactive) */
-            font-size: 0.9rem;
-            color: #999;
-            /* Faded text */
-            background: transparent;
-            padding: 10px;
-            border: 1px solid transparent;
-            border-radius: 6px;
-            transition: all 0.2s ease-in-out;
-            position: relative;
-            /* Needed for the arrow */
-            z-index: 10;
-            line-height: normal;
-        }
+    /* Default Look (Inactive) */
+    font-size: 0.9rem;
+    color: #999;
+    /* Faded text */
+    background: transparent;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    /* Needed for the arrow */
+    z-index: 10;
+    line-height: normal;
+}
 
-        /* --- HOVER STATES (Bidirectional) --- */
+/* --- HOVER STATES (Bidirectional) --- */
 
-        /* When hovering the WRAPPER, highlight the TRIGGER TEXT */
-        .sn-wrapper:hover .sn-trigger {
-            background-color: #fff8c5;
-            /* The Yellow highlight color */
-            color: #000;
-            border-bottom: 1px solid #d9534f;
-        }
+/* When hovering the WRAPPER, highlight the TRIGGER TEXT */
+.sn-wrapper:hover .sn-trigger {
+    background-color: #fff8c5;
+    /* The Yellow highlight color */
+    color: #000;
+    border-bottom: 1px solid #d9534f;
+}
 
-        /* When hovering the WRAPPER, highlight the SIDENOTE CARD */
-        .sn-content:hover,
-        .sn-wrapper:hover .sn-content {
-            color: #333;
-            /* Darken text */
-            background-color: #fff;
-            /* White card background */
-            border: 1px solid #4a90e2;
-            /* Blue Border */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transform: translateX(-5px);
-            /* Slight pop effect */
-            line-height: normal;
-        }
+/* When hovering the WRAPPER, highlight the SIDENOTE CARD */
+.sn-content:hover,
+.sn-wrapper:hover .sn-content {
+    color: #333;
+    /* Darken text */
+    background-color: #fff;
+    /* White card background */
+    border: 1px solid #4a90e2;
+    /* Blue Border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateX(-5px);
+    /* Slight pop effect */
+    line-height: normal;
+}
 
-        /* --- THE ARROW (Speech Bubble Triangle) --- */
-        /* We use ::before and ::after to create the triangle and its border */
+/* --- THE ARROW (Speech Bubble Triangle) --- */
+/* We use ::before and ::after to create the triangle and its border */
 
-        .sn-content::before,
-        .sn-content::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            opacity: 0;
-            /* Hidden by default */
-            transition: opacity 0.2s;
-            right: 100%;
-            /* Position on left edge of box */
-            top: 15px;
-            /* Distance from top */
-        }
+.sn-content::before,
+.sn-content::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    opacity: 0;
+    /* Hidden by default */
+    transition: opacity 0.2s;
+    right: 100%;
+    /* Position on left edge of box */
+    top: 15px;
+    /* Distance from top */
+}
 
-        /* The Border of the arrow */
-        .sn-content::before {
-            border-width: 8px;
-            border-color: transparent #4a90e2 transparent transparent;
-            margin-right: 0px;
-        }
+/* The Border of the arrow */
+.sn-content::before {
+    border-width: 8px;
+    border-color: transparent #4a90e2 transparent transparent;
+    margin-right: 0px;
+}
 
-        /* The Background of the arrow (covers the border to make it look outlined) */
-        .sn-content::after {
-            border-width: 7px;
-            border-color: transparent #fff transparent transparent;
-            margin-right: -1px;
-            margin-top: 1px;
-        }
+/* The Background of the arrow (covers the border to make it look outlined) */
+.sn-content::after {
+    border-width: 7px;
+    border-color: transparent #fff transparent transparent;
+    margin-right: -1px;
+    margin-top: 1px;
+}
 
 
-        p {
-            font-size: 1.4rem;
-            margin-top: 1.4rem;
-            margin-bottom: 1.4rem;
-            padding-right: 0;
-            vertical-align: baseline;
-            line-height: 2rem;
-        }
+p {
+    font-size: 1.4rem;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline;
+    line-height: 2rem;
+}
 
-        /* Show arrow on hover */
-        .sn-wrapper:hover .sn-content::before,
-        .sn-wrapper:hover .sn-content::after {
-            opacity: 1;
-        }
+/* Show arrow on hover */
+.sn-wrapper:hover .sn-content::before,
+.sn-wrapper:hover .sn-content::after {
+    opacity: 1;
+}
 
-        /* --- TOOLTIP (The small popup over the text) --- */
-        /* Uses the 'data-title' attribute on the wrapper */
-        .sn-wrapper::before {
-            content: attr(data-title);
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-5px);
-            background: #333;
-            color: #fff;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s;
-            font-family: "Literata", serif;
-        }
+/* --- TOOLTIP (The small popup over the text) --- */
+/* Uses the 'data-title' attribute on the wrapper */
+.sn-wrapper::before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    background: #333;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    font-family: "Literata", serif;
+}
 
-        .sn-wrapper:hover::before {
-            opacity: 1;
-            transition-delay: 0.1s;
-        }
+.sn-wrapper:hover::before {
+    opacity: 1;
+    transition-delay: 0.1s;
+}
 
-        /* --- MOBILE --- */
-        @media (max-width: 900px) {
-            .main-text {
-                width: 100%;
-            }
+/* --- MOBILE --- */
+@media (max-width: 900px) {
+    .main-text {
+        width: 100%;
+    }
 
-            .sn-content {
-                display: none;
-                /* Hide sidebar */
-                float: none;
-                width: 100%;
-                margin: 10px 0;
-                color: #333;
-                border: 1px solid #ddd;
-            }
+    .sn-content {
+        display: none;
+        /* Hide sidebar */
+        float: none;
+        width: 100%;
+        margin: 10px 0;
+        color: #333;
+        border: 1px solid #ddd;
+    }
 
-            /* Reveal on click/hover for mobile */
-            .sn-wrapper:active .sn-content,
-            .sn-wrapper:focus-within .sn-content {
-                display: block;
-            }
+    /* Reveal on click/hover for mobile */
+    .sn-wrapper:active .sn-content,
+    .sn-wrapper:focus-within .sn-content {
+        display: block;
+    }
 
-            .sn-content::before,
-            .sn-content::after {
-                display: none;
-            }
+    .sn-content::before,
+    .sn-content::after {
+        display: none;
+    }
 
-            /* No arrows on mobile */
-        }
+    /* No arrows on mobile */
+}
 
-        a.sn-content {
-            text-decoration: none;
-            /* Removes the link underline */
-            display: block;
-            /* Ensures it behaves like a box */
-            cursor: pointer;
-            /* Shows the hand icon */
-        }
+a.sn-content {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
 
-        /* Ensure the hover state color overrides standard link blue */
-        a.sn-content:hover {
-            color: #333 !important;
-            /* Force dark text color on hover */
-        }
+a.sn-content:hover {
+    color: #333 !important;
+}

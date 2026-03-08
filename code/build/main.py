@@ -92,6 +92,13 @@ def build():
     with open(os.path.join(OUTPUT_DIR, 'index.html'), 'w') as f:
         f.write(output_html)
 
+
+    print("Copying random folder...")
+
+    # copy the random folder into the public folder 
+    os.system(f"cp -r random {OUTPUT_DIR}/random")
+    
+    
     print(f"Build complete! Output is in /{OUTPUT_DIR}")
 
 

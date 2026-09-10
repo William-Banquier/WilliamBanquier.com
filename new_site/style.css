@@ -6,7 +6,7 @@
   /* Fonts */
   --font-family: 'Instrument Serif', Georgia, serif;
 
-  /* Exact 90px on standard 1440px Mac display */
+  /* 90px margin on standard 1440px Mac display */
   --side-margin: clamp(1.5rem, 6.25vw, 90px);
 }
 
@@ -71,7 +71,7 @@ body {
   color: var(--active-link-color, #FFFFFF);
 }
 
-/* Central Hover Preview */
+/* Central Hover Preview Stage */
 .image-stage {
   position: fixed;
   top: 50%;
@@ -137,18 +137,23 @@ body {
   transform: translateY(0);
 }
 
-/* Color Theme 1: Experience */
+/* Color Themes */
 .theme-experience {
   background-color: #B7791F;
   --theme-bg: #B7791F;
   --theme-watermark: #F6D8A8;
 }
 
-/* Color Theme 2: UBC Rover */
 .theme-rover {
   background-color: #A3A0C8;
   --theme-bg: #A3A0C8;
   --theme-watermark: #ABB8C0;
+}
+
+.theme-competitions {
+  background-color: #2C7A7B;
+  --theme-bg: #2C7A7B;
+  --theme-watermark: #B2F5EA;
 }
 
 /* Fixed Header */
@@ -234,10 +239,14 @@ body {
   margin: 1.5rem 0;
 }
 
+.detail-row.align-start {
+  align-items: start;
+}
+
 /* Editorial Typography */
 .text-block p {
-  font-size: clamp(2.6rem, 3.6vw, 4.1rem);
-  line-height: 1.12;
+  font-size: clamp(2.5rem, 3.4vw, 3.8rem);
+  line-height: 1.15;
   color: #111111;
   font-weight: 400;
 }
@@ -246,7 +255,101 @@ body {
   font-style: italic;
 }
 
-/* Detail Action Links */
+/* =========================================
+   COMPETITIONS PAGE SPECIFIC STYLES
+   ========================================= */
+
+.theme-competitions {
+  background-color: #2C7A7B;
+  --theme-bg: #2C7A7B;
+  --theme-watermark: #B2F5EA;
+}
+
+/* 1. Default italic behavior: inherit dark color */
+.theme-competitions em {
+  font-style: italic;
+  color: inherit;
+}
+
+/* 2. ONLY the competition heading titles at the start of paragraphs are white */
+.theme-competitions .contest-heading em,
+.theme-competitions .stacked-contests em {
+  color: #FFFFFF;
+}
+
+/* 3. The narrative paragraph on the right remains entirely dark (including italics) */
+.theme-competitions .right-column-flex p,
+.theme-competitions .right-column-flex em {
+  color: #111111;
+}
+
+/* 4. Top Huawei Section: Size 40 Text */
+.competitions-full-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin: 1rem 0;
+}
+
+.contest-entry .contest-heading {
+  font-size: clamp(22px, 2.78vw, 40px);
+  line-height: 1.15;
+  color: #111111;
+  font-weight: 400;
+}
+
+.contest-entry .contest-body {
+  font-size: clamp(22px, 2.78vw, 40px);
+  line-height: 1.18;
+  color: #111111;
+  padding-left: clamp(1.5rem, 3vw, 3.5rem);
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+/* 5. Lower Section: Size 40 Text */
+.theme-competitions .detail-row.align-start {
+  align-items: start;
+}
+
+.theme-competitions .text-block p {
+  font-size: clamp(22px, 2.78vw, 40px);
+  line-height: 1.16;
+  color: #111111;
+  font-weight: 400;
+}
+
+.stacked-contests {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.stat-group p {
+  line-height: 1.12;
+}
+
+.right-column-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+/* 6. "Contact William" stays white and prominent */
+.theme-competitions .action-links .link-italic {
+  font-size: clamp(2.6rem, 3.6vw, 4.1rem);
+  font-style: italic;
+  color: #FFFFFF;
+  text-decoration: none;
+  line-height: 1.15;
+}
+
+.bottom-action-link {
+  margin-top: clamp(3rem, 7vw, 8.5rem);
+}
+
+/* Action Links */
 .action-links {
   margin-top: 2rem;
   display: flex;
@@ -301,6 +404,7 @@ body {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+
   .detail-row.reverse {
     display: flex;
     flex-direction: column-reverse;

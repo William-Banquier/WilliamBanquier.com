@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const DEFAULT_BG = '#FFFFFF';
   const DEFAULT_FOOTER = '#111111';
 
-  // 1. Preload hover assets into memory
+  // 1. Preload hover assets
   links.forEach(link => {
     const imgSrc = link.dataset.img;
     if (imgSrc) {
@@ -22,9 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
       root.style.setProperty('--active-link-color', link.dataset.text || '#FFFFFF');
       root.style.setProperty('--footer-color', link.dataset.footer || DEFAULT_FOOTER);
 
+      // Only show image if explicitly configured; clear otherwise
       if (link.dataset.img) {
         previewImage.src = link.dataset.img;
         previewImage.classList.add('visible');
+      } else {
+        previewImage.classList.remove('visible');
       }
     });
 
@@ -42,7 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const roverLink = document.getElementById('rover-link');
   const roverDetail = document.getElementById('rover-detail');
 
-  const allOverlays = [experienceDetail, roverDetail];
+  const competitionsLink = document.getElementById('competitions-link');
+  const competitionsDetail = document.getElementById('competitions-detail');
+
+  const allOverlays = [experienceDetail, roverDetail, competitionsDetail];
 
   function openView(view) {
     if (!view) return;
@@ -63,15 +69,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Open triggers
-  experienceLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    openView(experienceDetail);
-  });
+  if (experienceLink) {
+    experienceLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      openView(experienceDetail);
+    });
+  }
 
-  roverLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    openView(roverDetail);
-  });
+  if (roverLink) {
+    roverLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      openView(roverDetail);
+    });
+  }
+
+  if (competitionsLink) {
+    competitionsLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      openView(competitionsDetail);
+    });
+  }
 
   // Close triggers (top buttons & bottom Back buttons)
   document.querySelectorAll('.close-btn').forEach(btn => {

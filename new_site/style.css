@@ -2,15 +2,11 @@
   --bg-color: #FFFFFF;
   --default-text: #111111;
   --footer-color: #111111;
-  
-  /* Rover page specific tokens */
-  --rover-bg: #A3A0C8;
-  --watermark-color: #ABB8C0;
 
-  /* Font: Instrument Serif */
+  /* Fonts */
   --font-family: 'Instrument Serif', Georgia, serif;
 
-  /* 90px on a standard 1440px Mac display: 1440 * 0.0625 = 90px */
+  /* Exact 90px on standard 1440px Mac display */
   --side-margin: clamp(1.5rem, 6.25vw, 90px);
 }
 
@@ -75,7 +71,7 @@ body {
   color: var(--active-link-color, #FFFFFF);
 }
 
-/* Central Preview for Hover */
+/* Central Hover Preview */
 .image-stage {
   position: fixed;
   top: 50%;
@@ -120,12 +116,11 @@ body {
 }
 
 /* =========================================
-   2. UBC ROVER DETAIL PAGE OVERLAY
+   2. DETAIL PAGE OVERLAYS (SHARED)
    ========================================= */
 .project-view {
   position: fixed;
   inset: 0;
-  background-color: var(--rover-bg);
   z-index: 100;
   overflow-y: auto;
   opacity: 0;
@@ -142,7 +137,21 @@ body {
   transform: translateY(0);
 }
 
-/* Fixed Header: does not scroll */
+/* Color Theme 1: Experience */
+.theme-experience {
+  background-color: #B7791F;
+  --theme-bg: #B7791F;
+  --theme-watermark: #F6D8A8;
+}
+
+/* Color Theme 2: UBC Rover */
+.theme-rover {
+  background-color: #A3A0C8;
+  --theme-bg: #A3A0C8;
+  --theme-watermark: #ABB8C0;
+}
+
+/* Fixed Header */
 .detail-header-fixed {
   position: fixed;
   top: 0;
@@ -150,7 +159,7 @@ body {
   right: 0;
   z-index: 110;
   padding: 1.8rem var(--side-margin) 1.2rem var(--side-margin);
-  background: linear-gradient(to bottom, var(--rover-bg) 85%, transparent);
+  background: linear-gradient(to bottom, var(--theme-bg) 85%, transparent);
 }
 
 .back-btn {
@@ -175,14 +184,14 @@ body {
   width: 100%;
   padding-left: var(--side-margin);
   padding-right: var(--side-margin);
-  padding-top: 6.5rem; /* Clearance for header */
-  padding-bottom: 10rem;
+  padding-top: 6.5rem;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Watermark: Single line, #ABB8C0, edge-to-edge */
+/* Watermark: Single line */
 .watermark-wrapper {
   width: 100%;
   overflow: hidden;
@@ -195,13 +204,13 @@ body {
   white-space: nowrap;
   font-size: clamp(3.8rem, 11.2vw, 11.8rem);
   font-weight: 400;
-  color: var(--watermark-color);
+  color: var(--theme-watermark);
   letter-spacing: 0.01em;
   user-select: none;
   line-height: 0.85;
 }
 
-/* Images: strictly respect provided file proportions + 10px white stroke */
+/* Images & 10px Stroke */
 .image-block {
   width: 100%;
   display: flex;
@@ -216,7 +225,7 @@ body {
   box-sizing: border-box;
 }
 
-/* 2-Column Editorial Grid */
+/* 2-Column Grid */
 .detail-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -225,7 +234,7 @@ body {
   margin: 1.5rem 0;
 }
 
-/* Large Editorial Typography */
+/* Editorial Typography */
 .text-block p {
   font-size: clamp(2.6rem, 3.6vw, 4.1rem);
   line-height: 1.12;
@@ -260,7 +269,33 @@ body {
   transform: translateX(5px);
 }
 
-/* Mobile responsive collapse */
+/* Bottom Right "Back" Button */
+.bottom-action-row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.bottom-back-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-family);
+  font-size: clamp(2.8rem, 3.8vw, 4.2rem);
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.bottom-back-btn:hover {
+  opacity: 0.8;
+  transform: translateX(4px);
+}
+
+/* Responsive */
 @media (max-width: 850px) {
   .detail-row {
     grid-template-columns: 1fr;

@@ -19,13 +19,17 @@
     <img id="preview-image" src="" alt="" />
   </div>
 
-  <!-- Landing Main View -->
+  <!-- ===================================================
+       MAIN LANDING SCREEN
+       =================================================== -->
   <div class="landing-container">
     <nav class="project-nav">
-      <a href="/work" class="nav-item" 
-         data-bg="#B7791F" data-text="#FFFFFF" data-footer="#FEEBC8"
-         data-img="static/main/work.webp">Work</a>
+      <!-- Work renamed to Experience -->
+      <a href="#experience" id="experience-link" class="nav-item" 
+         data-bg="#B7791F" data-text="#FFFFFF" data-footer="#F6D8A8"
+         data-img="static/main/headshot.png">Experience</a>
 
+      <!-- UBC Rover -->
       <a href="#ubc-rover" id="rover-link" class="nav-item italic" 
          data-bg="#9E9BC4" data-text="#FFFFFF" data-footer="#ABB8C0"
          data-img="static/main/rover.webp">UBC Rover</a>
@@ -47,18 +51,93 @@
 
 
   <!-- ===================================================
-       UBC ROVER SCROLLABLE DETAIL VIEW
+       EXPERIENCE DETAIL VIEW (In-Page)
        =================================================== -->
-  <div id="rover-detail" class="project-view" aria-hidden="true">
+  <div id="experience-detail" class="project-view theme-experience" aria-hidden="true">
 
-    <!-- Fixed Header (Stays pinned during scroll) -->
+    <!-- Fixed Header -->
     <header class="detail-header-fixed">
-      <button id="close-rover" class="back-btn" aria-label="Close detail view">
+      <button class="back-btn close-btn" aria-label="Close Experience view">
+        <em>Experience</em>
+      </button>
+    </header>
+
+    <!-- Scrollable Content -->
+    <main class="view-content">
+
+      <!-- Watermark 1 -->
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <!-- Section 1: Text Left / Headshot Right -->
+      <section class="detail-row">
+        <div class="text-block">
+          <p>
+            <em>William</em> is a student at the University of British Columbia currently on an 
+            eight month co-op workterm doing software for Picton Investments’ Arbitrage Fund
+          </p>
+        </div>
+        <div class="image-block">
+          <img class="stroke-10" src="static/main/headshot.png" alt="William Banquier Headshot" />
+        </div>
+      </section>
+
+      <!-- Watermark 2 -->
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <!-- Section 2: Softek Left / Rover & Links Right -->
+      <section class="detail-row">
+        <div class="text-block">
+          <p>
+            <em>William</em> previously worked at the fintech firm Softek where he built 
+            scalable financial software for clients on all sides of every transaction.
+          </p>
+        </div>
+        <div class="text-block">
+          <p>
+            <em>William</em> also runs the UBC Rover arm team.
+          </p>
+          <div class="action-links">
+            <a href="https://www.pictoninvestments.com/" target="_blank" rel="noopener noreferrer" class="link-italic">
+              More about Picton
+            </a>
+            <a href="https://www.softek.ca/" target="_blank" rel="noopener noreferrer" class="link-italic">
+              More about Softek
+            </a>
+            <a href="#contact" class="link-italic to-contact-btn">
+              Contact William
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Right Back Button -->
+      <div class="bottom-action-row">
+        <button class="bottom-back-btn close-btn" aria-label="Go back">
+          <em>Back</em>
+        </button>
+      </div>
+
+    </main>
+  </div>
+
+
+  <!-- ===================================================
+       UBC ROVER DETAIL VIEW (In-Page)
+       =================================================== -->
+  <div id="rover-detail" class="project-view theme-rover" aria-hidden="true">
+
+    <!-- Fixed Header -->
+    <header class="detail-header-fixed">
+      <button class="back-btn close-btn" aria-label="Close Rover view">
         <em>UBC Rover</em>
       </button>
     </header>
 
-    <!-- Scrollable Content Track -->
+    <!-- Scrollable Content -->
     <main class="view-content">
 
       <!-- Watermark 1 -->
@@ -98,12 +177,19 @@
             <a href="https://ubcrover.com" target="_blank" rel="noopener noreferrer" class="link-italic">
               More about rover
             </a>
-            <a href="#contact" id="rover-to-contact" class="link-italic">
+            <a href="#contact" class="link-italic to-contact-btn">
               Contact William
             </a>
           </div>
         </div>
       </section>
+
+      <!-- Bottom Right Back Button -->
+      <div class="bottom-action-row">
+        <button class="bottom-back-btn close-btn" aria-label="Go back">
+          <em>Back</em>
+        </button>
+      </div>
 
     </main>
   </div>

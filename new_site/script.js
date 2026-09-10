@@ -35,45 +35,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. UBC Rover In-Page Detail View
+  // 3. Multi-Page Detail Overlay System
+  const experienceLink = document.getElementById('experience-link');
+  const experienceDetail = document.getElementById('experience-detail');
+
   const roverLink = document.getElementById('rover-link');
   const roverDetail = document.getElementById('rover-detail');
-  const closeRoverBtn = document.getElementById('close-rover');
-  const roverToContact = document.getElementById('rover-to-contact');
 
-  function openRoverPage(e) {
-    if (e) e.preventDefault();
-    roverDetail.classList.add('active');
-    roverDetail.setAttribute('aria-hidden', 'false');
-    roverDetail.scrollTop = 0;
-    document.body.style.overflow = 'hidden'; // Locks landing page scroll
+  const allOverlays = [experienceDetail, roverDetail];
+
+  function openView(view) {
+    if (!view) return;
+    view.classList.add('active');
+    view.setAttribute('aria-hidden', 'false');
+    view.scrollTop = 0;
+    document.body.style.overflow = 'hidden'; // Lock background scroll
   }
 
-  function closeRoverPage() {
-    roverDetail.classList.remove('active');
-    roverDetail.setAttribute('aria-hidden', 'true');
+  function closeAllViews() {
+    allOverlays.forEach(view => {
+      if (view) {
+        view.classList.remove('active');
+        view.setAttribute('aria-hidden', 'true');
+      }
+    });
     document.body.style.overflow = '';
   }
 
-  roverLink.addEventListener('click', openRoverPage);
-  closeRoverBtn.addEventListener('click', closeRoverPage);
+  // Open triggers
+  experienceLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    openView(experienceDetail);
+  });
 
-  // Close on Escape
+  roverLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    openView(roverDetail);
+  });
+
+  // Close triggers (top buttons & bottom Back buttons)
+  document.querySelectorAll('.close-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeAllViews();
+    });
+  });
+
+  // Close on Escape key
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && roverDetail.classList.contains('active')) {
-      closeRoverPage();
+    if (e.key === 'Escape') {
+      closeAllViews();
     }
   });
 
-  // "Contact William" button action
-  roverToContact.addEventListener('click', (e) => {
-    e.preventDefault();
-    closeRoverPage();
+  // "Contact William" button action inside any detail overlay
+  document.querySelectorAll('.to-contact-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeAllViews();
 
-    const contactLink = document.getElementById('contact-link');
-    if (contactLink) {
-      contactLink.scrollIntoView({ behavior: 'smooth' });
-      contactLink.focus();
-    }
+      const contactLink = document.getElementById('contact-link');
+      if (contactLink) {
+        contactLink.scrollIntoView({ behavior: 'smooth' });
+        contactLink.focus();
+      }
+    });
   });
 });

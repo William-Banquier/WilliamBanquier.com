@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Banquier</title>
+  
+  <!-- Instrument Serif from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Hover Stage Image -->
+  <div class="image-stage" aria-hidden="true">
+    <img id="preview-image" src="" alt="" />
+  </div>
+
+  <!-- Landing Main View -->
+  <div class="landing-container">
+    <nav class="project-nav">
+      <a href="/work" class="nav-item" 
+         data-bg="#B7791F" data-text="#FFFFFF" data-footer="#FEEBC8"
+         data-img="static/main/work.webp">Work</a>
+
+      <a href="#ubc-rover" id="rover-link" class="nav-item italic" 
+         data-bg="#9E9BC4" data-text="#FFFFFF" data-footer="#ABB8C0"
+         data-img="static/main/rover.webp">UBC Rover</a>
+
+      <a href="/competitions" class="nav-item italic" 
+         data-bg="#2C7A7B" data-text="#FFFFFF" data-footer="#B2F5EA">Competitions</a>
+
+      <a href="/interests" class="nav-item" 
+         data-bg="#702459" data-text="#FFFFFF" data-footer="#FED7E2">Current Interests</a>
+
+      <a href="#contact" id="contact-link" class="nav-item" 
+         data-bg="#222222" data-text="#FFFFFF" data-footer="#666666">Contact</a>
+    </nav>
+
+    <footer class="footer">
+      <h1 class="brand-name">WILLIAM BANQUIER</h1>
+    </footer>
+  </div>
+
+
+  <!-- ===================================================
+       UBC ROVER SCROLLABLE DETAIL VIEW
+       =================================================== -->
+  <div id="rover-detail" class="project-view" aria-hidden="true">
+
+    <!-- Fixed Header (Stays pinned during scroll) -->
+    <header class="detail-header-fixed">
+      <button id="close-rover" class="back-btn" aria-label="Close detail view">
+        <em>UBC Rover</em>
+      </button>
+    </header>
+
+    <!-- Scrollable Content Track -->
+    <main class="view-content">
+
+      <!-- Watermark 1 -->
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <!-- Section 1: Text Left / Image Right -->
+      <section class="detail-row">
+        <div class="text-block">
+          <p>
+            <em>UBC Rover</em> is a multi disciplinary design team from the 
+            University of British Columbia that competes in the CIRC and URC rover competitions.
+          </p>
+        </div>
+        <div class="image-block">
+          <img class="stroke-10" src="static/main/rover-field.jpg" alt="UBC Rover in the desert" />
+        </div>
+      </section>
+
+      <!-- Watermark 2 -->
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <!-- Section 2: Image Left / Text Right -->
+      <section class="detail-row reverse">
+        <div class="image-block">
+          <img class="stroke-10" src="static/main/rover.webp" alt="Robotic Arm CAD model" />
+        </div>
+        <div class="text-block">
+          <p>
+            <em>William</em> leads the Arm team where he builds a 1 meter long 6 degree of 
+            freedom robotic arm and end effector.
+          </p>
+          <div class="action-links">
+            <a href="https://ubcrover.com" target="_blank" rel="noopener noreferrer" class="link-italic">
+              More about rover
+            </a>
+            <a href="#contact" id="rover-to-contact" class="link-italic">
+              Contact William
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

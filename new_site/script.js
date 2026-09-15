@@ -93,6 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
     openView(overlays.contact);
   });
 
+  document.getElementById('resume-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open('static/resume.pdf', '_blank');
+  });
+
   // Close buttons (Headers, "Back" buttons, and williambanquier.com link)
   document.querySelectorAll('.close-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {

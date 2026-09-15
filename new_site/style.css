@@ -3,10 +3,10 @@
   --default-text: #111111;
   --footer-color: #111111;
 
-  /* Fonts */
+  /* Typography */
   --font-family: 'Instrument Serif', Georgia, serif;
 
-  /* 90px margin on standard 1440px Mac display */
+  /* Exactly 90px on standard 1440px Mac display */
   --side-margin: clamp(1.5rem, 6.25vw, 90px);
 }
 
@@ -28,7 +28,7 @@ body {
 }
 
 /* =========================================
-   1. LANDING PAGE STYLES
+   1. LANDING PAGE
    ========================================= */
 .landing-container {
   min-height: 100vh;
@@ -71,7 +71,7 @@ body {
   color: var(--active-link-color, #FFFFFF);
 }
 
-/* Central Hover Preview Stage */
+/* Hover Preview */
 .image-stage {
   position: fixed;
   top: 50%;
@@ -116,7 +116,7 @@ body {
 }
 
 /* =========================================
-   2. DETAIL PAGE OVERLAYS (SHARED)
+   2. DETAIL PAGES (SHARED)
    ========================================= */
 .project-view {
   position: fixed;
@@ -137,7 +137,7 @@ body {
   transform: translateY(0);
 }
 
-/* Color Themes */
+/* Page Themes */
 .theme-experience {
   background-color: #B7791F;
   --theme-bg: #B7791F;
@@ -154,6 +154,18 @@ body {
   background-color: #2C7A7B;
   --theme-bg: #2C7A7B;
   --theme-watermark: #B2F5EA;
+}
+
+.theme-projects {
+  background-color: #702459;
+  --theme-bg: #702459;
+  --theme-watermark: #FED7E2;
+}
+
+.theme-contact {
+  background-color: #262626;
+  --theme-bg: #262626;
+  --theme-watermark: #4A4A4A;
 }
 
 /* Fixed Header */
@@ -184,19 +196,19 @@ body {
   opacity: 0.8;
 }
 
-/* Scrollable Container */
+/* View Content */
 .view-content {
   width: 100%;
   padding-left: var(--side-margin);
   padding-right: var(--side-margin);
   padding-top: 6.5rem;
-  padding-bottom: 5rem;
+  padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Watermark: Single line */
+/* Watermarks */
 .watermark-wrapper {
   width: 100%;
   overflow: hidden;
@@ -215,7 +227,7 @@ body {
   line-height: 0.85;
 }
 
-/* Images & 10px Stroke */
+/* Images */
 .image-block {
   width: 100%;
   display: flex;
@@ -230,7 +242,7 @@ body {
   box-sizing: border-box;
 }
 
-/* 2-Column Grid */
+/* Rows & Grid */
 .detail-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -243,7 +255,6 @@ body {
   align-items: start;
 }
 
-/* Editorial Typography */
 .text-block p {
   font-size: clamp(2.5rem, 3.4vw, 3.8rem);
   line-height: 1.15;
@@ -253,100 +264,6 @@ body {
 
 .text-block em {
   font-style: italic;
-}
-
-/* =========================================
-   COMPETITIONS PAGE SPECIFIC STYLES
-   ========================================= */
-
-.theme-competitions {
-  background-color: #2C7A7B;
-  --theme-bg: #2C7A7B;
-  --theme-watermark: #B2F5EA;
-}
-
-/* 1. Default italic behavior: inherit dark color */
-.theme-competitions em {
-  font-style: italic;
-  color: inherit;
-}
-
-/* 2. ONLY the competition heading titles at the start of paragraphs are white */
-.theme-competitions .contest-heading em,
-.theme-competitions .stacked-contests em {
-  color: #FFFFFF;
-}
-
-/* 3. The narrative paragraph on the right remains entirely dark (including italics) */
-.theme-competitions .right-column-flex p,
-.theme-competitions .right-column-flex em {
-  color: #111111;
-}
-
-/* 4. Top Huawei Section: Size 40 Text */
-.competitions-full-block {
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  margin: 1rem 0;
-}
-
-.contest-entry .contest-heading {
-  font-size: clamp(22px, 2.78vw, 40px);
-  line-height: 1.15;
-  color: #111111;
-  font-weight: 400;
-}
-
-.contest-entry .contest-body {
-  font-size: clamp(22px, 2.78vw, 40px);
-  line-height: 1.18;
-  color: #111111;
-  padding-left: clamp(1.5rem, 3vw, 3.5rem);
-  margin-top: 0.5rem;
-  font-weight: 400;
-}
-
-/* 5. Lower Section: Size 40 Text */
-.theme-competitions .detail-row.align-start {
-  align-items: start;
-}
-
-.theme-competitions .text-block p {
-  font-size: clamp(22px, 2.78vw, 40px);
-  line-height: 1.16;
-  color: #111111;
-  font-weight: 400;
-}
-
-.stacked-contests {
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-}
-
-.stat-group p {
-  line-height: 1.12;
-}
-
-.right-column-flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100%;
-}
-
-/* 6. "Contact William" stays white and prominent */
-.theme-competitions .action-links .link-italic {
-  font-size: clamp(2.6rem, 3.6vw, 4.1rem);
-  font-style: italic;
-  color: #FFFFFF;
-  text-decoration: none;
-  line-height: 1.15;
-}
-
-.bottom-action-link {
-  margin-top: clamp(3rem, 7vw, 8.5rem);
 }
 
 /* Action Links */
@@ -372,7 +289,6 @@ body {
   transform: translateX(5px);
 }
 
-/* Bottom Right "Back" Button */
 .bottom-action-row {
   width: 100%;
   display: flex;
@@ -398,13 +314,165 @@ body {
   transform: translateX(4px);
 }
 
+/* =========================================
+   3. COMPETITIONS SPECIFICS
+   ========================================= */
+.theme-competitions em {
+  font-style: italic;
+  color: inherit;
+}
+
+.theme-competitions .contest-heading em,
+.theme-competitions .stacked-contests em {
+  color: #FFFFFF;
+}
+
+.theme-competitions .right-column-flex p,
+.theme-competitions .right-column-flex em {
+  color: #111111;
+}
+
+.competitions-full-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin: 1rem 0;
+}
+
+.contest-entry .contest-heading {
+  font-size: clamp(22px, 2.78vw, 40px);
+  line-height: 1.15;
+  color: #111111;
+  font-weight: 400;
+}
+
+.contest-entry .contest-body {
+  font-size: clamp(22px, 2.78vw, 40px);
+  line-height: 1.18;
+  color: #111111;
+  padding-left: clamp(1.5rem, 3vw, 3.5rem);
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+.theme-competitions .detail-row.align-start .text-block p {
+  font-size: clamp(22px, 2.78vw, 40px);
+  line-height: 1.16;
+}
+
+.stacked-contests {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.right-column-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.bottom-action-link {
+  margin-top: clamp(3rem, 7vw, 8.5rem);
+}
+
+/* =========================================
+   4. PROJECTS SPECIFICS
+   ========================================= */
+.theme-projects em {
+  color: #FFFFFF;
+  font-style: italic;
+}
+
+.theme-projects a.white-link {
+  text-decoration: none;
+}
+
+.theme-projects a.white-link:hover {
+  text-decoration: underline;
+}
+
+.projects-list-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin: 1rem 0;
+}
+
+.projects-list-block p {
+  font-size: clamp(22px, 2.7vw, 38px);
+  line-height: 1.18;
+  color: #111111;
+}
+
+.stacked-capabilities {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.stacked-capabilities p {
+  font-size: clamp(22px, 2.7vw, 38px);
+  line-height: 1.18;
+  color: #111111;
+}
+
+/* =========================================
+   5. CONTACT SPECIFICS (COMPACT)
+   ========================================= */
+.contact-view-compact {
+  overflow-y: auto;
+}
+
+.contact-content-flex {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contact-links-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+  margin: auto 0;
+  padding: 3rem 0;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem clamp(2.5rem, 6vw, 6rem);
+}
+
+.contact-main-link {
+  font-size: clamp(3rem, 6vw, 6.2rem);
+  color: #FFFFFF;
+  text-decoration: none;
+  line-height: 1;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.contact-main-link.italic {
+  font-style: italic;
+}
+
+.contact-main-link:hover {
+  opacity: 0.75;
+  transform: translateY(-2px);
+}
+
 /* Responsive */
 @media (max-width: 850px) {
   .detail-row {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
-
   .detail-row.reverse {
     display: flex;
     flex-direction: column-reverse;

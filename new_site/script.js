@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
       root.style.setProperty('--active-link-color', link.dataset.text || '#FFFFFF');
       root.style.setProperty('--footer-color', link.dataset.footer || DEFAULT_FOOTER);
 
-      // Only show image if explicitly configured; clear otherwise
       if (link.dataset.img) {
         previewImage.src = link.dataset.img;
         previewImage.classList.add('visible');
@@ -39,27 +38,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 3. Multi-Page Detail Overlay System
-  const experienceLink = document.getElementById('experience-link');
-  const experienceDetail = document.getElementById('experience-detail');
+  const overlays = {
+    experience: document.getElementById('experience-detail'),
+    rover: document.getElementById('rover-detail'),
+    competitions: document.getElementById('competitions-detail'),
+    projects: document.getElementById('projects-detail'),
+    contact: document.getElementById('contact-detail')
+  };
 
-  const roverLink = document.getElementById('rover-link');
-  const roverDetail = document.getElementById('rover-detail');
-
-  const competitionsLink = document.getElementById('competitions-link');
-  const competitionsDetail = document.getElementById('competitions-detail');
-
-  const allOverlays = [experienceDetail, roverDetail, competitionsDetail];
+  const allOverlaysList = Object.values(overlays);
 
   function openView(view) {
     if (!view) return;
+    closeAllViews();
     view.classList.add('active');
     view.setAttribute('aria-hidden', 'false');
     view.scrollTop = 0;
-    document.body.style.overflow = 'hidden'; // Lock background scroll
+    document.body.style.overflow = 'hidden';
   }
 
   function closeAllViews() {
-    allOverlays.forEach(view => {
+    allOverlaysList.forEach(view => {
       if (view) {
         view.classList.remove('active');
         view.setAttribute('aria-hidden', 'true');
@@ -68,29 +67,33 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  // Open triggers
-  if (experienceLink) {
-    experienceLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      openView(experienceDetail);
-    });
-  }
+  // Top Nav Link bindings
+  document.getElementById('experience-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openView(overlays.experience);
+  });
 
-  if (roverLink) {
-    roverLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      openView(roverDetail);
-    });
-  }
+  document.getElementById('rover-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openView(overlays.rover);
+  });
 
-  if (competitionsLink) {
-    competitionsLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      openView(competitionsDetail);
-    });
-  }
+  document.getElementById('competitions-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openView(overlays.competitions);
+  });
 
-  // Close triggers (top buttons & bottom Back buttons)
+  document.getElementById('projects-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openView(overlays.projects);
+  });
+
+  document.getElementById('contact-link')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openView(overlays.contact);
+  });
+
+  // Close buttons (Headers, "Back" buttons, and williambanquier.com link)
   document.querySelectorAll('.close-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -109,13 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.to-contact-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      closeAllViews();
-
-      const contactLink = document.getElementById('contact-link');
-      if (contactLink) {
-        contactLink.scrollIntoView({ behavior: 'smooth' });
-        contactLink.focus();
-      }
+      openView(overlays.contact);
     });
   });
 });

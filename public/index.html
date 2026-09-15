@@ -1,125 +1,375 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>William Banquier</title>
-    <link rel="stylesheet" href="static/stylesheet.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Banquier</title>
+  
+  <!-- Instrument Serif from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
-<body style="padding-left: 30px; padding-right: 30px;">
+  <!-- Floating Hover Stage Image -->
+  <div class="image-stage" aria-hidden="true">
+    <img id="preview-image" src="" alt="" />
+  </div>
+
+  <!-- ===================================================
+       MAIN LANDING SCREEN
+       =================================================== -->
+  <div class="landing-container">
+    <nav class="project-nav">
+      <!-- Experience -->
+      <a href="#experience" id="experience-link" class="nav-item" 
+         data-bg="#B7791F" data-text="#FFFFFF" data-footer="#F6D8A8">Experience</a>
+
+      <!-- UBC Rover -->
+      <a href="#ubc-rover" id="rover-link" class="nav-item italic" 
+         data-bg="#9E9BC4" data-text="#FFFFFF" data-footer="#ABB8C0"
+         data-img="static/main/rover.webp">UBC Rover</a>
+
+      <!-- Competitions -->
+      <a href="#competitions" id="competitions-link" class="nav-item italic" 
+         data-bg="#2C7A7B" data-text="#FFFFFF" data-footer="#B2F5EA">Competitions</a>
+
+      <!-- Projects (Renamed from Current Interests) -->
+      <a href="#projects" id="projects-link" class="nav-item" 
+         data-bg="#702459" data-text="#FFFFFF" data-footer="#FED7E2">Projects</a>
+
+      <a href="static/resume.pdf" id="resume-link" class="nav-item italic" 
+         data-bg="#4A5568" data-text="#FFFFFF" data-footer="#A0AEC0">Resume</a>
+
+      <!-- Contact -->
+      <a href="#contact" id="contact-link" class="nav-item" 
+         data-bg="#262626" data-text="#FFFFFF" data-footer="#555555">Contact</a>
 
 
-    <div class="container">
-        <!-- 
-				TITLE 
-			HERO
-                LINK 1 LINK 2 LINK 3 etc
+    </nav>
 
-			PROJ 1	PROJ 2 	PROJ 3
-			PROJ 4	PROJ 5	PROJ 6
-		
-		-->
+    <footer class="footer">
+      <h1 class="brand-name">WILLIAM BANQUIER</h1>
+    </footer>
+  </div>
 
-        <header>
-            <div class="links">
-                
-                <a href="mailto:william.banquier@gmail.com">
-                    <div class="link-content">Email</div>
-                </a>
-                
-                <a href="https://github.com/william-banquier">
-                    <div class="link-content">Github</div>
-                </a>
-                
-                <a href="./static/william-banquier-resume.pdf">
-                    <div class="link-content">Resume</div>
-                </a>
-                
-            </div>
-        </header>
 
-        <div class="header_ele">
-            <h1>Hello, I am William Banquier!</h1>
+  <!-- ===================================================
+       1. EXPERIENCE DETAIL VIEW
+       =================================================== -->
+  <div id="experience-detail" class="project-view theme-experience" aria-hidden="true">
+    <header class="detail-header-fixed">
+      <button class="back-btn close-btn" aria-label="Close Experience view">
+        <em>Experience</em>
+      </button>
+    </header>
 
-            <p class="intro-blurb">
-                I love building and breaking things.
-            </p>
+    <main class="view-content">
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <section class="detail-row">
+        <div class="text-block">
+          <p>
+            <em>William</em> is a student at the University of British Columbia currently on an 
+            eight month co-op workterm doing software for Picton Investments’ Arbitrage Fund
+          </p>
         </div>
+        <div class="image-block">
+          <img class="stroke-10" src="static/main/headshot.png" alt="William Banquier Headshot" />
+        </div>
+      </section>
 
-        <div id="hero"></div>
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
 
-        <hr class="divider">
-
-        <div class="project-grid">
-            
-            <a href="https://github.com/UBC-Snowbots/Arm" class="card">
-                <div class="card-img" style="background-image: url('./static/images/projects/rover_black.png');"></div>
-                <div class="card-content">
-                    <span class="card-title">UBC Rover - Arm & End Effector Team</span>
-                    <span class="card-desc">Working designing tool changing end effector for UBC Rover; competing in URC and CIRC. Responsible for CAD design, testing and manufacturing of the end effector system.</span>
-                </div>
+      <section class="detail-row">
+        <div class="text-block">
+          <p>
+            <em>William</em> previously worked at the fintech firm Softek where he built 
+            scalable financial software for clients on all sides of every transaction.
+          </p>
+        </div>
+        <div class="text-block">
+          <p>
+            <em>William</em> also runs the UBC Rover arm team.
+          </p>
+          <div class="action-links">
+            <a href="https://www.pictoninvestments.com/" target="_blank" rel="noopener noreferrer" class="link-italic">
+              More about Picton
             </a>
-            
-            <a href="https://github.com/William-Banquier/codeforces-2177-oxc_contest" class="card">
-                <div class="card-img" style="background-image: url('');"></div>
-                <div class="card-content">
-                    <span class="card-title">Huawei ICPC 2025 Winter Challenge</span>
-                    <span class="card-desc">My solution and repo to the Huawei ICPC Winter Challenge - The goal was to optimize optical switch connections (OXC connections) for NPU (neural-processing unit) queries, I created an end-to-end solution to test and develop my solution, using both c++ and python</span>
-                </div>
+            <a href="https://www.softek.ca/" target="_blank" rel="noopener noreferrer" class="link-italic">
+              More about Softek
             </a>
-            
-            <a href="https://ubcgradmap.com/" class="card">
-                <div class="card-img" style="background-image: url('./static/images/projects/gradmap.svg');"></div>
-                <div class="card-content">
-                    <span class="card-title">UBC Gradmap</span>
-                    <span class="card-desc">Web application to help UBC students plan their courses and visualize their degree progress. Built with as a part of UBC's <i>CPEN 221 - Software Construction I</i> Course</span>
-                </div>
+            <a href="#contact" class="link-italic to-contact-btn">
+              Contact William
             </a>
-            
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-action-row">
+        <button class="bottom-back-btn close-btn" aria-label="Go back">
+          <em>Back</em>
+        </button>
+      </div>
+    </main>
+  </div>
+
+
+  <!-- ===================================================
+       2. UBC ROVER DETAIL VIEW
+       =================================================== -->
+  <div id="rover-detail" class="project-view theme-rover" aria-hidden="true">
+    <header class="detail-header-fixed">
+      <button class="back-btn close-btn" aria-label="Close Rover view">
+        <em>UBC Rover</em>
+      </button>
+    </header>
+
+    <main class="view-content">
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <section class="detail-row">
+        <div class="text-block">
+          <p>
+            <em>UBC Rover</em> is a multi disciplinary design team from the 
+            University of British Columbia that competes in the CIRC and URC rover competitions.
+          </p>
+        </div>
+        <div class="image-block">
+          <img class="stroke-10" src="static/main/rover-field.jpg" alt="UBC Rover in the desert" />
+        </div>
+      </section>
+
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <section class="detail-row reverse">
+        <div class="image-block">
+          <img class="stroke-10" src="static/main/rover.webp" alt="Robotic Arm CAD model" />
+        </div>
+        <div class="text-block">
+          <p>
+            <em>William</em> leads the Arm team where he builds a 1 meter long 6 degree of 
+            freedom robotic arm and end effector.
+          </p>
+          <div class="action-links">
+            <a href="https://ubcrover.com" target="_blank" rel="noopener noreferrer" class="link-italic">
+              More about rover
+            </a>
+            <a href="#contact" class="link-italic to-contact-btn">
+              Contact William
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-action-row">
+        <button class="bottom-back-btn close-btn" aria-label="Go back">
+          <em>Back</em>
+        </button>
+      </div>
+    </main>
+  </div>
+
+
+  <!-- ===================================================
+       3. COMPETITIONS DETAIL VIEW
+       =================================================== -->
+  <div id="competitions-detail" class="project-view theme-competitions" aria-hidden="true">
+    <header class="detail-header-fixed">
+      <button class="back-btn close-btn" aria-label="Close Competitions view">
+        <em>Competitions</em>
+      </button>
+    </header>
+
+    <main class="view-content">
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <section class="competitions-full-block">
+        <article class="contest-entry">
+          <p class="contest-heading">
+            <em>Huawei Edge-Cloud Collaborative Inference Contest:</em> 960/4428 [active participants], top 20%
+          </p>
+          <p class="contest-body">
+            Wrote a performant cloud inference optimizer for LLM usage based on a prediction-driver heuristic scheduling methodology. A difficulty I tackled in this challenge was learning how to apply queue theory to systems like this.
+          </p>
+        </article>
+
+        <article class="contest-entry">
+          <p class="contest-heading">
+            <em>Huawei OXC Ports Arrangement Contest:</em> 931/3176 [active participants], top 30%
+          </p>
+          <p class="contest-body">
+            Wrote a optical switch arrangement (load balancer) methodology based off of a meta-heuristic approach. A difficulty I tackled in this challenge was managing the mandatory items and the nice to haves in my heuristic search space.
+          </p>
+        </article>
+      </section>
+
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <section class="detail-row align-start">
+        <div class="text-block stacked-contests">
+          <p>
+            <em>CIRC and URC:</em> I compete in both CIRC and URC with UBC Rover, the University of British Columbia’s Rover team
+          </p>
+          <div class="stat-group">
+            <p><em>Putnam 2025:</em> top 50%</p>
+            <p><em>Putnam 2024:</em> top 50%</p>
+          </div>
+          <p>
+            <em>ICPC 2025:</em> I participated in the ICPC 2025 NA West Regional in Divsion 2 with the University of British Columbia’s Competitive Programming Club
+          </p>
         </div>
 
-        <div class = "personal">
-            <h3>Personal Summary / LLM Scraper Info </h3>
+        <div class="text-block right-column-flex">
+          <p>
+            <em>William</em> is competing in and currently studying for the <em>2026 Putnam</em> while prepping his Rover for <em>CIRC</em> and <em>URC</em>
+          </p>
+          <div class="action-links bottom-action-link">
+            <a href="#contact" class="link-italic to-contact-btn">
+              Contact William
+            </a>
+          </div>
+        </div>
+      </section>
 
-            <p class = "personal-summary">William Banquier is a 3rd year Computer Engineering student at the University of British Columbia. He is a member of the UBC Rover design team where he works on the End Effector system. He participates in the William Lowell Putnam Exam (The Putnam) and the International Collegiate Programming Contest (ICPC). <br>Currently he is working on creating a fuzzing tool for the MEI driver on the Linux Kernel<br>He has previously interned at the fintech firm Softek where he developed financial applications. His most recent project was the ICPC Huawei Online Winter Challenge where he developed an end-to-end system for testing and optimizing optical switch connections for AI workloads.<br>William can be contacted at william.banquier@gmail.com.</p>
+      <div class="bottom-action-row">
+        <button class="bottom-back-btn close-btn" aria-label="Go back">
+          <em>Back</em>
+        </button>
+      </div>
+    </main>
+  </div>
 
+
+  <!-- ===================================================
+       4. PROJECTS DETAIL VIEW
+       =================================================== -->
+  <div id="projects-detail" class="project-view theme-projects" aria-hidden="true">
+    <header class="detail-header-fixed">
+      <button class="back-btn close-btn" aria-label="Close Projects view">
+        <em>Projects</em>
+      </button>
+    </header>
+
+    <main class="view-content">
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <!-- Top Section: Project Listing -->
+      <section class="projects-list-block">
+        <p>
+          <a href="https://ubcrover.com" target="_blank" rel="noopener noreferrer" class="white-link"><em>UBC Rover:</em></a> 
+          I run the UBC Rover Arm Team where we build a robotic arm for the CIRC and URC competitions
+        </p>
+        <p>
+          <em>AVKiller:</em> In the courses CPSC 539L, myself and a peer built AV Killer, a extremely effective automated windows antivirus fuzzing software package
+        </p>
+        <p>
+          <a href="https://ubcgradmap.com/" target="_blank" rel="noopener noreferrer" class="white-link"><em>UBC Gradmap:</em></a> 
+          Built UBCGradmap.com a website to let ubc students visualize their courses
+        </p>
+        <p>
+          <a href="#" class="white-link close-btn"><em>williambanquier.com:</em></a> 
+          This website
+        </p>
+        <p>
+          <em>RISC-V CPU In System Verilog:</em> Built a RISC-V CPU in System Verilog for a class competition how optimal we could build our systems
+        </p>
+      </section>
+
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <!-- Lower Section: Capabilities & Contact -->
+      <section class="detail-row align-start">
+        <div class="text-block stacked-capabilities">
+          <p>
+            <em>William has been:</em> Coding for a decade with multiple roles dealing with no failure possible systems (finance and robotics).
+          </p>
+          <p>
+            <em>William has been:</em> Doing CAD work for six years, with three years of SolidWorks experience on building a 1 meter long robotic arm for our Rover Competitions
+          </p>
+          <p>
+            <em>William has built:</em> Using C, C#, C++, Python, Rust, Java, Html, CSS, JS, Next.js, SystemVerilog
+          </p>
+          <p>
+            <em>William builds with:</em> Linux, Windows
+          </p>
+          <p>
+            <em>William knows:</em> Git, Docker, Excel, VSCode, SSMS, and how to utilize multi-agent AI Systems
+          </p>
         </div>
 
-        <div class="list-section">
-            <h3>Other Projects</h3>
-            <ul class="simple-list">
-                
-                <li>
-                    <a href="https://github.com/william-banquier/williambanquier.com">williambanquier.com</a>
-                    <span style="color:#888; font-size: 0.9em;"> // 2025-12-16</span>
-                    <p> Personal website (this page). Built with a custom static site generator in Python. </p>
-                </li>
-                
-                <li>
-                    <a href="https://ece.ubc.ca/courses/cpen-211/">RISC-V CPU in SystemVerilog</a>
-                    <span style="color:#888; font-size: 0.9em;"> // 2024-09-01</span>
-                    <p> For the course CPEN 211 at the University of British Columbia, I designed and implemented a simple RISC-V CPU in SystemVerilog. Using the CPU competed in a in-class competition where I reduced clock cycles and sped up the CPU. Note: As this was a course project, the code is not publicly available. </p>
-                </li>
-                
-                <li>
-                    <a href="https://github.com/William-Banquier/WilliamBanquierPersonal">Archived Personal Projects Repository</a>
-                    <span style="color:#888; font-size: 0.9em;"> // 2020-01-01</span>
-                    <p> A collection of my personal projects, from pre 2020 </p>
-                </li>
-                
-            </ul>
+        <div class="text-block right-column-flex">
+          <div></div> <!-- Spacer -->
+          <div class="action-links bottom-action-link">
+            <a href="#contact" class="link-italic to-contact-btn">
+              Contact William
+            </a>
+          </div>
         </div>
+      </section>
 
-    <hr class="divider">
+      <div class="bottom-action-row">
+        <button class="bottom-back-btn close-btn" aria-label="Go back">
+          <em>Back</em>
+        </button>
+      </div>
+    </main>
+  </div>
 
-        <!-- FOOTER -->
-        <footer style="margin: 60px 0; text-align: center; color: #888; font-size: 0.8rem;">
-            <p>William Banquier 2026 - <a href="https://github.com/william-banquier/williambanquier.com">Repo Link</a> - Page Last Updated 2026-03-07
-            </p>
-        </footer>
-    </div>
+
+  <!-- ===================================================
+       5. CONTACT DETAIL VIEW (Compact)
+       =================================================== -->
+  <div id="contact-detail" class="project-view theme-contact contact-view-compact" aria-hidden="true">
+    <header class="detail-header-fixed">
+      <button class="back-btn close-btn" aria-label="Close Contact view">
+        <em>Contact</em>
+      </button>
+    </header>
+
+    <main class="view-content contact-content-flex">
+      <div class="watermark-wrapper" aria-hidden="true">
+        <span class="watermark-title">WILLIAM BANQUIER</span>
+      </div>
+
+      <nav class="contact-links-grid">
+        <div class="contact-row">
+          <a href="mailto:williambanquier@gmail.com" class="contact-main-link">Email</a>
+          <a href="https://www.linkedin.com/in/william-banquier/" target="_blank" rel="noopener noreferrer" class="contact-main-link italic">Linkedin</a>
+          <a href="https://github.com/William-Banquier" target="_blank" rel="noopener noreferrer" class="contact-main-link">GitHub</a>
+        </div>
+        <div class="contact-row">
+          <a href="static/resume.pdf" target="_blank" rel="noopener noreferrer" class="contact-main-link italic">Resume</a>
+        </div>
+      </nav>
+
+      <div class="bottom-action-row">
+        <button class="bottom-back-btn close-btn" aria-label="Go back">
+          <em>Back</em>
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
